@@ -18,6 +18,7 @@ function ColorSchemesExample() {
           </Nav>
         </Container>
       </Navbar>
+      <img className='img1' src='/vinyll.jpg' height={420}></img>
     </>
   );
 }
