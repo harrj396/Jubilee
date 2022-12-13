@@ -18,7 +18,7 @@ function ColorSchemesExample() {
           </Nav>
         </Container>
       </Navbar>
-      <img className='img1' src='/vinyll.jpg' height={420}></img>
+      {/* <img className='img1' src='/vinyll.jpg' height={420}></img> */}
     </>
   );
 }
@@ -57,7 +57,7 @@ const APIController = (function() {
   } 
 
   const _getTracks = async (token, tracksEndPoint) => {
-    const limit = 10;
+    // const limit = 10;
     const result = await fetch (`${tracksEndPoint}?limit=$(limit)`, {
       method: 'GET',
       headers: { 'Authorization' : 'Bearer ' + token}
@@ -91,3 +91,6 @@ return {
   },
 } 
 })();
+
+
+APIController()
