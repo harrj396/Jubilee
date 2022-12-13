@@ -28,8 +28,8 @@ export default ColorSchemesExample;
 
 const APIController = (function() {
 
-  const clientId = process.env.REACT_APP_clientId;
-  const clientSecret = process.env.REACT_APP_clientSecret;
+  const spotify_client_Id = process.env.SPOTFIY_CLIENT_ID;
+  const spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 
   // private method
   const _getToken = async () => {
@@ -38,7 +38,7 @@ const APIController = (function() {
       method: 'POST',
       headers: {
         'Content-Type' : 'application/x-www-form-urlencoded',
-        'Authorization' : 'Basic ' + btoa(clientId + ':' + clientSecret)
+        'Authorization' : 'Basic ' + btoa(spotify_client_Id + ':' + spotify_client_secret)
       },
       body: 'grant_type=client_credentials'
     });
