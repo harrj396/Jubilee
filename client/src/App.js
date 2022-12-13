@@ -28,8 +28,8 @@ export default ColorSchemesExample;
 
 const APIController = (function() {
 
-  const clientId = '';
-  const clientSecret = '';
+  const clientId = process.env.REACT_APP_clientId;
+  const clientSecret = process.env.REACT_APP_clientSecret;
 
   // private method
   const _getToken = async () => {
