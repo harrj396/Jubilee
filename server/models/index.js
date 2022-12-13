@@ -1,3 +1,3 @@
-const Thought = require('./Thought');
+const Jubilee = require('./Album');
 
-module.exports = { Thought };
+module.exports = { Jubilee };
