@@ -1,4 +1,5 @@
 // import logo from './logo.svg';
+import React from "react";
 import './App.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -31,3 +32,25 @@ function ColorSchemesExample() {
 }
 
 export default ColorSchemesExample;
+
+// Spotify API data
+
+const APIController = (function() {
+
+  const spotify_client_Id = process.env.SPOTFIY_CLIENT_ID;
+  const spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
+
+  // private method
+  const _getToken = async () => {
+
+    const result = await fetch ('https://accounts.spotify.com/api/token', {
+      method: 'POST',
+      headers: {
+        'Content-Type' : 'application/x-www-form-urlencoded',
+        'Authorization' : 'Basic ' + btoa(spotify_client_Id + ':' + spotify_client_secret)
+      },
+      body: 'grant_type=client_credentials'
+    });
+    const data = await result.json();
+    return data.access_token;
+  }})
