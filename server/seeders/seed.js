@@ -1,6 +1,6 @@
 const db = require('../config/connection');
 const { Album } = require('../models');
-const albumSeeds = require('./albumSeeds.json');
+const AlbumSeeds = require('./albumSeeds.json');
 
 db.once('open', async () => {
   await Album.deleteMany({});
