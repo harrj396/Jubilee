@@ -22,10 +22,10 @@ const userSchema = new Schema(
     type: String,
     required: true,
   },
-  // set savedBooks to be an array of data that adhers to the bookSchema
+  // set savedAlbums to be an array of data that adhers to the bookSchema
   savedAlbums: [Album],
   },
-    // Set this ot use virtual below
+    // Set this to use virtual below
   {
     toJSON: {
       virtuals: true,
