@@ -9,8 +9,10 @@ import React, {useEffect } from 'react';
 
 function ColorSchemesExample() {
 
-  const spotify_client_Id = process.env.REACT_APP_SPOTFIY_CLIENT_ID;
+  const spotify_client_Id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+  console.log(spotify_client_Id)
   const spotify_client_secret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
+  console.log(spotify_client_secret)
   const authParameters = {
     method: 'POST',
     headers: {
@@ -31,7 +33,7 @@ function ColorSchemesExample() {
   
   useEffect(() => {
     ypp()
-  }, []);
+  });
     
    
   return (
