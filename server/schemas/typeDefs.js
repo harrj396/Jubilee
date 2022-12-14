@@ -36,7 +36,7 @@ type Mutation {
   login(email: String!, password: String!): Auth
   addUser(username: String!, email: String!, password: String!): Auth
   savedAlbums(albumDescription: String!, albumTitle: String!): Album
-  removeAlbum(_id: ID!): Album
+  deleteAlbum(_id: ID!): Album
 }
 `;
 
