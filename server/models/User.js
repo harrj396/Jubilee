@@ -7,25 +7,31 @@ const Album = require('./Album');
 const userSchema = new Schema(
   {
     username: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  email: 
+      type: String,
+      required: true,
+      unique: true,
+    },
+    email:
     {
       type: String,
       require: true,
       unique: true,
       match: [/.+@.+\..+/, 'Must use a valid email address'],
     },
-  password: {
-    type: String,
-    required: true,
+    password: {
+      type: String,
+      required: true,
+    },
+    // set savedAlbums to be an array of data that adhers to the bookSchema
+    savedAlbums: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Album'
+      },
+    ]
+    ,
   },
-  // set savedAlbums to be an array of data that adhers to the bookSchema
-  savedAlbums: [Album],
-  },
-    // Set this to use virtual below
+  // Set this to use virtual below
   {
     toJSON: {
       virtuals: true,

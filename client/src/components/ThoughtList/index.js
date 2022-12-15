@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ThoughtList = ({
+const AlbumList = ({
   thoughts,
   title,
   showTitle = true,
@@ -51,4 +51,4 @@ const ThoughtList = ({
   );
 };
 
-export default ThoughtList;
+export default AlbumList;
