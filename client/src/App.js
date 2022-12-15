@@ -34,7 +34,7 @@ function App() {
   async function search() {
     console.log("Searching for")
   }
-  const [searchInput, setSearchInput] = useState("")
+  const [searchInput, setSearchInput] = useState("");
   return (
     <div className="App">
       <Container>
@@ -52,6 +52,16 @@ function App() {
           <Button onClick={() => {console.log("howdy")}}>Search Artist</Button>
         </InputGroup>
       </Container>
+    <Container>
+      <Row className="mx-2 row row-cols-4">
+        <Card>
+        <Card.Img src="#"/>
+          <Card.Body>
+            <Card.Title>Album Name</Card.Title>
+          </Card.Body>  
+      </Card>
+      </Row>
+    </Container>
     </div>
   );
 }
