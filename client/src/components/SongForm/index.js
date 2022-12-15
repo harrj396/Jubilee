@@ -23,6 +23,7 @@ const SongForm = ({ albumId }) => {
           songArtist: Auth.getProfile().data.username,
         },
       });
+      <div>{data}</div>
 
       setSongTitle('');
     } catch (err) {
@@ -57,6 +58,7 @@ const SongForm = ({ albumId }) => {
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
+            
             <div className="col-12 col-lg-9">
               <textarea
                 name="songTitle"

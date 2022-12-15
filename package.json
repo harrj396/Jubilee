@@ -20,7 +20,13 @@
     "prettier": "^2.1.2"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.2",
     "bootstrap": "^4.6.2",
-    "react-bootstrap": "^0.32.4"
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "jwt-decode": "^3.1.2",
+    "react": "^17.0.1",
+    "react-bootstrap": "^0.32.4",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^6.4.5"
   }
 }
