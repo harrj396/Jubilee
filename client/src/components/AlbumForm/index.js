@@ -44,7 +44,7 @@ const AlbumForm = () => {
           albumAuthor: Auth.getProfile().data.username,
         },
       });
-
+<div>{data}</div>
       setAlbumText('');
     } catch (err) {
       console.error(err);
