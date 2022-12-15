@@ -9,7 +9,6 @@ function App() {
 
   const spotify_client_Id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
   const spotify_client_secret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
-  const [accessToken, setAccessToken] = useState("") 
   const authParameters = {
     method: 'POST',
     headers: {
@@ -19,18 +18,16 @@ function App() {
   }
   
   
-  console.log('hey')
   function ypp() {
     fetch('https://accounts.spotify.com/api/token', authParameters)
     .then(result => result.json())
-    .then(data => console.log(data.access_token))
-    console.log('hello')
+    .then(data => setAccessToken(data.access_token))
   }
  
   useEffect(() => {
     ypp()
   });
-    
+  const [accessToken, setAccessToken] = useState("") 
   // Search function
   async function search() {
     console.log("Searching for " + searchInput);
@@ -39,7 +36,7 @@ function App() {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + accessToken,
+      'Authorization': 'Bearer ' + accessToken
     }
   }
     var artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist' , artistParameters)
