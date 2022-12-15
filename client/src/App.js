@@ -5,12 +5,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-import React, {useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 
 function ColorSchemesExample() {
 
   const spotify_client_Id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
   const spotify_client_secret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
+  // const [accessToken, setAccessToken] = useState("") 
   const authParameters = {
     method: 'POST',
     headers: {
@@ -24,16 +25,17 @@ function ColorSchemesExample() {
   function ypp() {
     fetch('https://accounts.spotify.com/api/token', authParameters)
     .then(result => result.json())
-    .then(data => console.log(data))
+    .then(data => console.log(data.access_token))
     console.log('hello')
     
   }
-  
+ 
   useEffect(() => {
     ypp()
   });
     
-   
+  
+
   return (
     <>
       <Navbar bg="dark" variant="dark">
