@@ -1,13 +1,11 @@
 // import logo from './logo.svg';
 import './App.css';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
+import {Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
 import React, {useEffect, useState} from 'react';
 
-function ColorSchemesExample() {
+
+function App() {
 
   const spotify_client_Id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
   const spotify_client_secret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
@@ -36,31 +34,29 @@ function ColorSchemesExample() {
   async function search() {
     console.log("Searching for")
   }
-
+  const [searchInput, setSearchInput] = useState("")
   return (
-    <>
-      <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Jubilee</Navbar.Brand>
-          <Nav className="me-auto">
-
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#record">Make a Record</Nav.Link>
-            <Nav.Link href="#about">About Us</Nav.Link>
-            
-          </Nav>
-          <Button href='login' className='me-3' variant="light">Login</Button>{' '}
-          <Button href='signup' variant="light">Sign Up</Button>{' '}
-        </Container>
-      </Navbar>
-      <img className='img1' src='/vinyll.jpg' height={420}></img>
-      <h1 className='textover'>Design your Custom Vinyl today!</h1>
-      <Button id='button1' href='signup' variant="primary">Get Started</Button>{' '}
-    </>
+    <div className="App">
+      <Container>
+        <InputGroup className="mb-3" size="lg">
+          <FormControl
+          placeholder="Search for Artist"
+          type="input"
+          onKeyPress={event => {
+            if (event.key == "Enter") {
+              console.log("Enter pressed")
+            }
+          }}
+          onChange={event => setSearchInput(event.target.value)}
+          />
+          <Button onClick={() => {console.log("howdy")}}>Search Artist</Button>
+        </InputGroup>
+      </Container>
+    </div>
   );
 }
 
 
   
 
-export default ColorSchemesExample;
+export default App;
