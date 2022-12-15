@@ -31,9 +31,12 @@ function App() {
     ypp()
   });
     
+  // Search function
   async function search() {
-    console.log("Searching for")
+    console.log("Searching for " + searchInput);
   }
+
+  // Page data
   const [searchInput, setSearchInput] = useState("");
   return (
     <div className="App">
@@ -44,12 +47,12 @@ function App() {
           type="input"
           onKeyPress={event => {
             if (event.key == "Enter") {
-              console.log("Enter pressed")
+              search();
             }
           }}
           onChange={event => setSearchInput(event.target.value)}
           />
-          <Button onClick={() => {console.log("howdy")}}>Search Artist</Button>
+          <Button onClick={search}>Search Artist</Button>
         </InputGroup>
       </Container>
     <Container>
