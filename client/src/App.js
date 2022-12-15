@@ -34,7 +34,19 @@ function App() {
   // Search function
   async function search() {
     console.log("Searching for " + searchInput);
+  
+  var artistParameters = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + accessToken,
+    }
   }
+    var artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist' , artistParameters)
+    .then(response => response.json())
+    .then(data => console.log(data))
+  }
+ 
 
   // Page data
   const [searchInput, setSearchInput] = useState("");
