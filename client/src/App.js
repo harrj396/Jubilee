@@ -11,7 +11,7 @@ function ColorSchemesExample() {
 
   const spotify_client_Id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
   const spotify_client_secret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
-  // const [accessToken, setAccessToken] = useState("") 
+  const [accessToken, setAccessToken] = useState("") 
   const authParameters = {
     method: 'POST',
     headers: {
@@ -27,14 +27,15 @@ function ColorSchemesExample() {
     .then(result => result.json())
     .then(data => console.log(data.access_token))
     console.log('hello')
-    
   }
  
   useEffect(() => {
     ypp()
   });
     
-  
+  async function search() {
+    console.log("Searching for")
+  }
 
   return (
     <>
