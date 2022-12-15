@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import AlbumList from '../components/AlbumList';
+// import AlbumList from '../components/AlbumList';
 import AlbumForm from '../components/AlbumForm';
 
 import { QUERY_ALBUMS } from '../utils/queries';
@@ -19,17 +19,18 @@ const Home = () => {
           className="col-12 col-md-10 mb-3 p-3"
           style={{ border: '1px dotted #1a1a1a' }}
         >
-          <ThoughtForm />
+          <AlbumForm />
         </div>
         <div className="col-12 col-md-8 mb-3">
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <AlbumList
+            <albumList
               albums={albums}
               title="Some Feed for Album(s)..."
             />
           )}
+          <p>aaaaaaaaaaaaaaaaaaaa</p>
         </div>
       </div>
     </main>

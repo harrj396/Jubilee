@@ -2,24 +2,24 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_THOUGHT } from '../../utils/mutations';
-import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
+import { ADD_ALBUM } from '../../utils/mutations';
+import { QUERY_ME, QUERY_ALBUMS } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const ThoughtForm = () => {
-  const [thoughtText, setThoughtText] = useState('');
+const AlbumForm = () => {
+  const [AlbumText, setAlbumText] = useState('');
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addThought, { error }] = useMutation(ADD_THOUGHT, {
-    update(cache, { data: { addThought } }) {
+  const [addAlbum, { error }] = useMutation(ADD_ALBUM, {
+    update(cache, { data: { addAlbum } }) {
       try {
-        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+        const { albums } = cache.readQuery({ query: QUERY_ALBUMS });
 
         cache.writeQuery({
-          query: QUERY_THOUGHTS,
-          data: { thoughts: [addThought, ...thoughts] },
+          query: QUERY_ALBUMS,
+          data: { albums: [addAlbum, ...albums] },
         });
       } catch (e) {
         console.error(e);
@@ -29,7 +29,7 @@ const ThoughtForm = () => {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
+        data: { me: { ...me, albums: [...me.albums, addAlbum] } },
       });
     },
   });
@@ -38,14 +38,14 @@ const ThoughtForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addThought({
+      const { data } = await addAlbum({
         variables: {
-          thoughtText,
-          thoughtAuthor: Auth.getProfile().data.username,
+          AlbumText,
+          albumAuthor: Auth.getProfile().data.username,
         },
       });
-
-      setThoughtText('');
+<div>{data}</div>
+      setAlbumText('');
     } catch (err) {
       console.error(err);
     }
@@ -54,15 +54,15 @@ const ThoughtForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'thoughtText' && value.length <= 280) {
-      setThoughtText(value);
+    if (name === 'albumText' && value.length <= 280) {
+      setAlbumText(value);
       setCharacterCount(value.length);
     }
   };
 
   return (
     <div>
-      <h3>What's on your techy mind?</h3>
+      <h3>Create your own playilist on an Vinyl!</h3>
 
       {Auth.loggedIn() ? (
         <>
@@ -79,9 +79,9 @@ const ThoughtForm = () => {
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="thoughtText"
-                placeholder="Here's a new thought..."
-                value={thoughtText}
+                name="albumText"
+                placeholder="Here's a new Album"
+                value={AlbumText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -90,7 +90,7 @@ const ThoughtForm = () => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Thought
+                Add album
               </button>
             </div>
             {error && (
@@ -102,7 +102,7 @@ const ThoughtForm = () => {
         </>
       ) : (
         <p>
-          You need to be logged in to share your thoughts. Please{' '}
+          You need to be logged in to share your Album. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
@@ -110,4 +110,4 @@ const ThoughtForm = () => {
   );
 };
 
-export default ThoughtForm;
+export default AlbumForm;
