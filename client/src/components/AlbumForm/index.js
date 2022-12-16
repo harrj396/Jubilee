@@ -5,6 +5,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_ALBUM } from "../../utils/mutations";
 import { QUERY_ALBUMS, QUERY_ME } from "../../utils/queries";
 
+import SearchSpotify from "../SearchSpotify";
 import Auth from "../../utils/auth";
 
 const AlbumForm = () => {
@@ -73,14 +74,35 @@ const AlbumForm = () => {
           >
             Character Count: {characterCount}/280
           </p>
-          <form
+          <SearchSpotify />
+    
+
+
+        </>
+      ) : (
+        <p>
+          You need to be logged in to create your Album. Please{" "}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+        </p>
+      )}
+    </div>
+  );
+};
+
+export default AlbumForm;
+
+
+
+
+
+      {/* <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="thoughtText"
-                placeholder="Here's a new thought..."
+                name="albumTitle"
+                placeholder="Here's a new album..."
                 value={AlbumTitle}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
@@ -98,16 +120,4 @@ const AlbumForm = () => {
                 {error.message}
               </div>
             )}
-          </form>
-        </>
-      ) : (
-        <p>
-          You need to be logged in to create your Album. Please{" "}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-        </p>
-      )}
-    </div>
-  );
-};
-
-export default AlbumForm;
+          </form> */}

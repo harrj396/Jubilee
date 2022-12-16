@@ -41,7 +41,7 @@ const AlbumList = ({
             </div>
             <Link
               className="btn btn-primary btn-block btn-squared"
-              to={`/thoughts/${album._id}`}
+              to={`/albums/${album._id}`}
             >
               Join Jubilee on this album.
             </Link>

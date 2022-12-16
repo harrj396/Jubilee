@@ -46,7 +46,7 @@ const SingleAlbum = () => {
       </div>
 
       <div className="my-5">
-        <SongList comments={album.songs} />
+        <SongList songs={album.songs} />
       </div>
       <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
         <SongForm albumId={album._id} />

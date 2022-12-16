@@ -25,7 +25,7 @@ const Footer = () => {
           >
             ❤️
           </span>{' '}
-          by the Tech Albums team.
+          by the Vynl-Villians team.
         </h4>
       </div>
     </footer>
