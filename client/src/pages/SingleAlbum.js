@@ -4,8 +4,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-// import CommentList from '../components/CommentList';
-// import CommentForm from '../components/CommentForm';
+import SongList from '../components/SongList';
+import SongForm from '../components/SongForm';
 
 import { QUERY_SINGLE_ALBUM } from '../utils/queries';
 
@@ -18,7 +18,7 @@ const SingleAlbum = () => {
     variables: { albumId: albumId },
   });
 
-  const album = data?.thought || {};
+  const album = data?.album || {};
 
   if (loading) {
     return <div>Loading...</div>;
@@ -26,9 +26,9 @@ const SingleAlbum = () => {
   return (
     <div className="my-3">
       <h3 className="card-header bg-dark text-light p-2 m-0">
-        {album.albumAuthor} <br />
+        {album.albumArtist} <br />
         <span style={{ fontSize: '1rem' }}>
-          Created this album on {album.createdAt}
+          had this album on {album.createdAt}
         </span>
       </h3>
       <div className="bg-light py-4">
@@ -41,16 +41,16 @@ const SingleAlbum = () => {
             lineHeight: '1.5',
           }}
         >
-          {album.albumText}
+          {album.albumTitle}
         </blockquote>
       </div>
 
-      {/* <div className="my-5">
-        <CommentList comments={album.comments} />
+      <div className="my-5">
+        <SongList songs={album.songs} />
       </div>
       <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-        <CommentForm albumId={album._id} />
-      </div> */}
+        <SongForm albumId={album._id} />
+      </div>
     </div>
   );
 };

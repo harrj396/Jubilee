@@ -3,7 +3,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import AlbumForm from '../components/AlbumForm';
-import AlbumList from '../components/ThoughtList';
+import AlbumList from '../components/AlbumList';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
@@ -44,8 +44,8 @@ const Profile = () => {
 
         <div className="col-12 col-md-10 mb-5">
           <AlbumList
-            thoughts={user.thoughts}
-            title={`${user.username}'s thoughts...`}
+            albums={user.albums}
+            title={`${user.username}'s albums...`}
             showTitle={false}
             showUsername={false}
           />

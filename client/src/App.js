@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+// import './App.css';
 import {
   ApolloClient,
   InMemoryCache,
@@ -83,3 +83,4 @@ function App() {
 }
 
 export default App;
+
