@@ -1,5 +1,9 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 import Auth from '../../utils/auth';
 
@@ -9,37 +13,21 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div>
-          <Link className="text-light" to="/">
-            <h1 className="m-0">Jubilee Albums</h1>
-          </Link>
-          <p className="m-0">Get into your favorite music.</p>
-        </div>
-        <div>
-          {Auth.loggedIn() ? (
-            <>
-              <Link className="btn btn-lg btn-info m-2" to="/me">
-                {Auth.getProfile().data.username}'s profile
-              </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
-                Login
-              </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
-                Signup
-              </Link>
-            </>
-          )}
-        </div>
-      </div>
-    </header>
+    <>
+    <Navbar bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand href="#home">Jubilee</Navbar.Brand>
+        <Nav className="">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#record">Make a Record</Nav.Link>
+          <Nav.Link href="#about">About Us</Nav.Link>
+          
+        </Nav>
+        <Button href='login' className='me-3' variant="light">Login</Button>{' '}
+        {/* <Button href='signup' variant="light">Sign Up</Button>{' '} */}
+      </Container>
+    </Navbar>
+    </>
   );
 };
 
