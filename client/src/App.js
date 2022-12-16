@@ -16,6 +16,7 @@ import SingleAlbum from './pages/SingleAlbum';
 import Profile from './pages/Profile';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import About from './pages/About'
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -72,6 +73,10 @@ function App() {
               <Route 
                 path="/albums/:albumId" 
                 element={<SingleAlbum />}
+              />
+              <Route 
+                path="/about" 
+                element={<About />}
               />
             </Routes>
           </div>
