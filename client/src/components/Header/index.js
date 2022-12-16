@@ -24,7 +24,7 @@ const Header = () => {
           
         </Nav>
         <Button href='login' className='me-3' variant="light">Login</Button>{' '}
-        <Button href='signup' variant="light">Sign Up</Button>{' '}
+        {/* <Button href='signup' variant="light">Sign Up</Button>{' '} */}
       </Container>
     </Navbar>
     </>
