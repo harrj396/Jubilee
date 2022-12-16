@@ -1,8 +1,8 @@
-const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
+const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
 
-// Import schema from Book.js
-const Album = require('./Album');
+// Import schema from Album.js
+const Album = require("./Album");
 
 const userSchema = new Schema(
   {
@@ -11,12 +11,11 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
-    email:
-    {
+    email: {
       type: String,
       require: true,
       unique: true,
-      match: [/.+@.+\..+/, 'Must use a valid email address'],
+      match: [/.+@.+\..+/, "Must use a valid email address"],
     },
     password: {
       type: String,
@@ -26,10 +25,9 @@ const userSchema = new Schema(
     savedAlbums: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Album'
+        ref: "Album",
       },
-    ]
-    ,
+    ],
   },
   // Set this to use virtual below
   {
@@ -40,8 +38,8 @@ const userSchema = new Schema(
 );
 
 // hash user password
-userSchema.pre('save', async function (next) {
-  if (this.isNew || this.isModified('password')) {
+userSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
@@ -55,10 +53,10 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 // when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-userSchema.virtual('albumCount').get(function () {
+userSchema.virtual("albumCount").get(function () {
   return this.savedAlbums.length;
 });
 
-const User = model('User', userSchema);
+const User = model("User", userSchema);
 
 module.exports = User;
