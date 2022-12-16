@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import Auth from '../utils/auth';
 
 const Login = (props) => {
@@ -52,31 +53,45 @@ const Login = (props) => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
+              // <form onSubmit={handleFormSubmit}>
+              //   <input
+              //     className="form-input"
+              //     placeholder="Your email"
+              //     name="email"
+              //     type="email"
+              //     value={formState.email}
+              //     onChange={handleChange}
+              //   />
+              //   <input
+              //     className="form-input"
+              //     placeholder="******"
+              //     name="password"
+              //     type="password"
+              //     value={formState.password}
+              //     onChange={handleChange}
+              //   />
+              //   <button
+              //     className="btn btn-block btn-primary"
+              //     style={{ cursor: 'pointer' }}
+              //     type="submit"
+              //   >
+              //     Submit
+              //   </button>
+              // </form>
+              <Form>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" />
+              </Form.Group>
+        
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" />
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
             )}
 
             {error && (
