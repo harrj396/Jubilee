@@ -41,9 +41,9 @@ function SearchSpotify() {
       'Authorization': 'Bearer ' + accessToken
     }
   }
-    var artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=track' , searchParameters)
+    var artistID = await fetch('https://api.spotify.com/v1/search?type=track:' + searchInput + searchParameters)
     .then(response => response.json())
-    .then(data => { return data.tracks.items[0].id})
+    .then(data => { return data.artists.items[0].id})
     console.log("ID is " + artistID)
 
     var returnedAlbums = await fetch('https://api.spotify.com/v1/tracks/' + artistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters)
@@ -72,7 +72,7 @@ function SearchSpotify() {
           }}
           onChange={event => setSearchInput(event.target.value)}
           />
-          <Button onClick={search}>Search Song</Button>
+          <Button onClick={search}>Search Artist</Button>
         </InputGroup>
       </Container>
     <Container>
