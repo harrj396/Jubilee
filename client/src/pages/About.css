@@ -3,6 +3,7 @@
 }
 h1 {
     margin: 3vh;
+    margin-top: 6vh;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: darkblue;
     font-size: 45px;
@@ -12,4 +13,6 @@ h1 {
     font-family: cursive;
     margin-bottom: 9vh;
 }
-
+p {
+    margin-bottom: 24vh;
+}
