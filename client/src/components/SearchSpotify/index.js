@@ -41,12 +41,12 @@ function SearchSpotify() {
       'Authorization': 'Bearer ' + accessToken
     }
   }
-    var artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist' , searchParameters)
+    var artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=track' , searchParameters)
     .then(response => response.json())
-    .then(data => { return data.artists.items[0].id})
+    .then(data => { return data.tracks.items[0].id})
     console.log("ID is " + artistID)
 
-    var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters)
+    var returnedAlbums = await fetch('https://api.spotify.com/v1/tracks/' + artistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters)
     .then(response => response.json())
     .then(data => {
       console.log(data);
@@ -63,7 +63,7 @@ function SearchSpotify() {
       <Container>
         <InputGroup className="mb-3" size="lg">
           <FormControl
-          placeholder="Search for Artist"
+          placeholder="Search for Song"
           type="input"
           onKeyPress={event => {
             if (event.key == "Enter") {
@@ -72,7 +72,7 @@ function SearchSpotify() {
           }}
           onChange={event => setSearchInput(event.target.value)}
           />
-          <Button onClick={search}>Search Artist</Button>
+          <Button onClick={search}>Search Song</Button>
         </InputGroup>
       </Container>
     <Container>
