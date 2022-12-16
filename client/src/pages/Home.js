@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import Button from 'react-bootstrap/Button';
-import './App.css';
+import './Home.css';
 
 // import AlbumList from '../components/AlbumList';
 import AlbumForm from '../components/AlbumForm';
