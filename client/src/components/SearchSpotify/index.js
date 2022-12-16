@@ -41,20 +41,24 @@ function SearchSpotify() {
       'Authorization': 'Bearer ' + accessToken
     }
   }
-    var artistID = await fetch('https://api.spotify.com/v1/search?type=track:' + searchInput + searchParameters)
+    var artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=track' , searchParameters)
     .then(response => response.json())
-    .then(data => { return data.artists.items[0].id})
+    .then(data => { 
+      console.log(data)
+      return data.tracks.items[0].id})
     console.log("ID is " + artistID)
+    
 
-    var returnedAlbums = await fetch('https://api.spotify.com/v1/tracks/' + artistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters)
+    var returnedAlbums = await fetch('https://api.spotify.com/v1/tracks/' + artistID, searchParameters)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
-      SetAlbums(data.items);
+      console.log("trackdata",data.name)
+      console.log("URL", data.album.images[0].url);
+      SetAlbums(data);
     })
 
   }
- console.log(albums);
+//  console.log(albums);
 
   // Page data
   const [searchInput, setSearchInput] = useState("");
@@ -63,7 +67,7 @@ function SearchSpotify() {
       <Container>
         <InputGroup className="mb-3" size="lg">
           <FormControl
-          placeholder="Search for Song"
+          placeholder="Search for Artist"
           type="input"
           onKeyPress={event => {
             if (event.key == "Enter") {
@@ -77,17 +81,18 @@ function SearchSpotify() {
       </Container>
     <Container>
       <Row className="mx-2 row row-cols-4">
-        {albums.map( (album, i) => {
 
-          return(
+          {albums === [] ? (
+            <p>enter your search above</p>
+          ) : (
             <Card>
-            <Card.Img src={album.images[0].url}/>
+            <Card.Img src={albums?.album?.images[0]?.url}/>
               <Card.Body>
-                <Card.Title>{album.name}</Card.Title>
+                <Card.Title>{albums?.name}</Card.Title>
               </Card.Body>  
             </Card>
-          )
-        })}
+          )}
+
 
       </Row>
     </Container>
