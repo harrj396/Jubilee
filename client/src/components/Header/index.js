@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import './header.css'
 
 import Auth from '../../utils/auth';
 
@@ -16,7 +17,10 @@ const Header = () => {
     <>
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="/">Jubilee</Navbar.Brand>
+        <Navbar.Brand href="/">
+        <img id='img' src='/logo407.jpg' height={60}></img>
+          Jubilee
+        </Navbar.Brand>
         <Nav className="">
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="#record">Make a Record</Nav.Link>
