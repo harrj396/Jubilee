@@ -52,29 +52,27 @@ function SearchSpotify() {
       },
     };
     var artistID = await fetch(
-      "https://api.spotify.com/v1/search?q=" + searchInput + "&type=artist",
-      searchParameters
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        return data.artists.items[0].id;
-      });
-    console.log("ID is " + artistID);
-
-    var returnedAlbums = await fetch(
-      "https://api.spotify.com/v1/artists/" +
-        artistID +
-        "/albums" +
-        "?include_groups=album&market=US&limit=50",
+      "https://api.spotify.com/v1/search?q=" + searchInput + "&type=track ",
       searchParameters
     )
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        SetAlbums(data.items);
+        return data.tracks.items[0].id;
+      });
+    console.log("ID is " + artistID);
+
+    var returnedAlbums = await fetch(
+      "https://api.spotify.com/v1/tracks/" + artistID,
+      searchParameters
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("trackdata", data.name);
+        console.log("URL", data.album.images[0].url);
+        SetAlbums(data);
       });
   }
-  console.log(albums);
 
   // Page data
   const [searchInput, setSearchInput] = useState("");
@@ -83,10 +81,10 @@ function SearchSpotify() {
       <Container>
         <InputGroup className="mb-3" size="lg">
           <FormControl
-            placeholder="Search for Artist"
-            type="input"
+            placeholder="Search for Songs/Artist"
+            type="search"
             onKeyPress={(event) => {
-              if (event.key == "Enter") {
+              if (event.key == "Search") {
                 search();
               }
             }}
@@ -97,19 +95,16 @@ function SearchSpotify() {
       </Container>
       <Container>
         <Row className="mx-2 row row-cols-4">
-          {albums.map((album, i) => {
-            return (
-              <Card>
-                <Card.Img src={album.images[0].url} />
-                <Card.Body>
-                  <Card.Title>{album.name}</Card.Title>
-                    <Button variant="contained" onClick={search}>
-                        Play
-                    </Button>
-                </Card.Body>
-              </Card>
-            );
-          })}
+          {albums === [] ? (
+          <p></p>
+          ) : (
+            <Card>
+              <Card.Img src={albums?.album?.images[0].url} />
+              <Card.Body>
+                <Card.Title>{albums?.name}</Card.Title>
+              </Card.Body>
+            </Card>
+          )}
         </Row>
       </Container>
     </div>

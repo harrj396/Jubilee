@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import SongForm from "../SongForm";
+import SongList from "../SongList";
+
 const AlbumList = ({
   albums,
   title,
@@ -39,6 +42,7 @@ const AlbumList = ({
             <div className="card-body bg-light p-2">
               <p>{album.albumTitle}</p>
             </div>
+
             <Link
               className="btn btn-primary btn-block btn-squared"
               to={`/albums/${album._id}`}

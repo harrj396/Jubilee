@@ -44,7 +44,7 @@ const SingleAlbum = () => {
           {album.albumTitle}
         </blockquote>
       </div>
-
+          
       <div className="my-5">
         <SongList songs={album.songs} />
       </div>

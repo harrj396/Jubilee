@@ -14,8 +14,10 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import SingleAlbum from './pages/SingleAlbum';
 import Profile from './pages/Profile';
+import NotFound from './pages/NotFound';
 import Header from './components/Header';
 import Footer from './components/Footer';
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -72,6 +74,10 @@ function App() {
               <Route 
                 path="/albums/:albumId" 
                 element={<SingleAlbum />}
+              />
+              <Route 
+                path="*" 
+                element={<NotFound />}
               />
             </Routes>
           </div>

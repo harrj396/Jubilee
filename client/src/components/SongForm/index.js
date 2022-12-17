@@ -58,18 +58,17 @@ const SongForm = ({ albumId }) => {
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
-            
-            <div className="col-12 col-lg-9">
-              <textarea
-                name="songTitle"
-                placeholder="Add your song..."
-                value={songTitle}
-                className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={handleChange}
-              ></textarea>
-            </div>
-
+          <div className="col-12 col-lg-9">
+            <textarea
+            name="songTitle"
+            placeholder="Add your song..."
+            value={songTitle}
+            className="form-input w-100"
+            style={{ lineHeight: '1.5', resize: 'vertical' }}
+            onChange={handleChange}
+            ></textarea>
+          </div>
+    
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
                 Add Song
@@ -88,3 +87,10 @@ const SongForm = ({ albumId }) => {
 };
 
 export default SongForm;
+
+
+
+
+
+
+
