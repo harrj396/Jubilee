@@ -68,14 +68,13 @@ const AlbumForm = () => {
       {Auth.loggedIn() ? (
         <>
           <p
-            className={`m-0 ${
-              characterCount === 280 || error ? "text-danger" : ""
-            }`}
+            className={`m-0 ${characterCount === 280 || error ? "text-danger" : ""
+              }`}
           >
             Character Count: {characterCount}/280
           </p>
           <SearchSpotify />
-    
+
 
 
         </>
@@ -95,7 +94,7 @@ export default AlbumForm;
 
 
 
-      {/* <form
+{/* <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
