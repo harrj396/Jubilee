@@ -10,9 +10,9 @@ import { QUERY_ALBUMS } from '../utils/queries';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_ALBUMS);
-  
+
   // Assign data if data exist then grab album or define albums as empty array
-  const albums = data?.albums || [];  
+  const albums = data?.albums || [];
 
   return (
     <div>
@@ -41,9 +41,9 @@ const Home = () => {
           
         </div>
       </div> */}
-      
+
     </div>
-    
+
   );
 };
 
