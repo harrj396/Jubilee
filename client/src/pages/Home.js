@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import AlbumList from '../components/AlbumList';
+// import AlbumList from '../components/AlbumList';
 import AlbumForm from '../components/AlbumForm';
 
 import { QUERY_ALBUMS } from '../utils/queries';
@@ -25,11 +25,12 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <AlbumList
+            <albumList
               albums={albums}
               title="Some Feed for Album(s)..."
             />
           )}
+          <p>aaaaaaaaaaaaaaaaaaaa</p>
         </div>
       </div>
     </main>
