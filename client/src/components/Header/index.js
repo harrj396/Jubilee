@@ -30,7 +30,7 @@ const Header = () => {
             <HomeIcon />
             <Nav.Link href="/">Home</Nav.Link> 
             <PlusCircleIcon />
-            <Nav.Link href="/albums/:albumId">Make a Record</Nav.Link>
+            <Nav.Link href="/albums/:albumId">Make Vynl Record</Nav.Link>
             <LibraryIcon />
             <Nav.Link href="/about">About Us</Nav.Link>
           </Nav>
