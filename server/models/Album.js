@@ -8,8 +8,6 @@ const songSchema = new Schema({
   songTitle: {
     type: String,
     required: "You need a song title!",
-    minlength: 1,
-    maxlength: 280,
     trim: true,
   },
   songArtist: {
@@ -31,12 +29,6 @@ const albumSchema = new Schema({
     type: String,
     trim: true
   },
-  albumDescription: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-
   songs: [songSchema],
 });
 
