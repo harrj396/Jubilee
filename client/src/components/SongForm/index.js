@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-
+import SearchSpotify from '../SearchSpotify';
 import { ADD_SONG } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
@@ -41,7 +41,7 @@ const SongForm = ({ albumId }) => {
   };
 
   return (
-    <div>
+    <SearchSpotify>
       <h4>What are your Albums on this Playlist?</h4>
 
       {Auth.loggedIn() ? (
@@ -82,7 +82,7 @@ const SongForm = ({ albumId }) => {
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
-    </div>
+    </SearchSpotify>
   );
 };
 
