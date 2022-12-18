@@ -27,6 +27,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@heroicons/react": "^1.0.6",
     "@mui/icons-material": "^5.11.0",
     "bootstrap": "^4.6.2",
     "eslint-plugin-react-hooks": "^4.6.0",
