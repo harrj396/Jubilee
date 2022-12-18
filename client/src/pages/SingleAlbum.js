@@ -24,27 +24,56 @@ const SingleAlbum = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="my-3">
+    <div className="my-3" style={{
+  
+    }}>
       <h3 className="card-header bg-dark text-light p-2 m-0">
         {album.albumArtist} <br />
         <span style={{ fontSize: '1rem' }}>
           had this album on {album.createdAt}
         </span>
       </h3>
+      <div className='picContainer' style={{
+        display: 'flex',
+        justifyContent: 'center',
+      }}>
       <div className="bg-light py-4">
         <blockquote
           className="p-4"
           style={{
             fontSize: '1.5rem',
-            fontStyle: 'italic',
-            border: '2px dotted #1a1a1a',
+            border: '2px solid #1a1a1a',
             lineHeight: '1.5',
           }}
+
         >
           {album.albumTitle}
+          <img className='img1'
+            style={{
+              width: 400,
+              height: 400,
+            }} src='/placer_record.jpg' height={10}></img>
         </blockquote>
       </div>
+      <div className="bg-light py-4">
+        <blockquote
+          className="p-4"
+          style={{
+            fontSize: '1.5rem',
+            border: '2px solid #1a1a1a',
+            lineHeight: '1.5',
+          }}
 
+        >
+          {album.albumTitle}
+          <img className='img1'
+            style={{
+              width: 400,
+              height: 400,
+            }} src='/cover_placer.png' height={10}></img>
+        </blockquote>
+      </div>
+      </div>
       <div className="my-5">
         <SongList songs={album.songs} />
       </div>

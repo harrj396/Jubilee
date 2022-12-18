@@ -19,7 +19,7 @@ const Header = () => {
         <Navbar.Brand href="/">Jubilee</Navbar.Brand>
         <Nav className="">
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="#record">Make a Record</Nav.Link>
+          <Nav.Link href="/albums/:albumId">Make a Record</Nav.Link>
           <Nav.Link href="/about">About Us</Nav.Link>
           
         </Nav>
