@@ -81,7 +81,7 @@ function SearchSpotify() {
         </InputGroup>
       </Container>
       <Container>
-        <Row className="mx-2 row row-cols-4">
+        <Row className="mx-2 row row-cols-4 justify-content-center">
 
           {albums === [] ? (
             <p>enter your search above</p>
