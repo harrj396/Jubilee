@@ -8,6 +8,7 @@ import SongList from '../components/SongList';
 import SongForm from '../components/SongForm';
 
 import { QUERY_SINGLE_ALBUM } from '../utils/queries';
+import SearchSpotify from '../components/SearchSpotify';
 
 const SingleAlbum = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
