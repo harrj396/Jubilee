@@ -50,32 +50,32 @@ function App() {
           <Header />
           <div className="container">
             <Routes>
-              <Route 
+              <Route
                 path="/"
                 element={<Home />}
               />
-              <Route 
-                path="/login" 
+              <Route
+                path="/login"
                 element={<Login />}
               />
-              <Route 
-                path="/signup" 
+              <Route
+                path="/signup"
                 element={<Signup />}
               />
-              <Route 
-                path="/me" 
+              <Route
+                path="/me"
                 element={<Profile />}
               />
-              <Route 
-                path="/profiles/:username" 
+              <Route
+                path="/profiles/:username"
                 element={<Profile />}
               />
-              <Route 
-                path="/albums/:albumId" 
+              <Route
+                path="/albums/:albumId"
                 element={<SingleAlbum />}
               />
-              <Route 
-                path="/about" 
+              <Route
+                path="/about"
                 element={<About />}
               />
             </Routes>
