@@ -4,7 +4,7 @@ const AlbumSeeds = require('./albumSeeds.json');
 
 db.once('open', async () => {
   await Album.deleteMany({});
-  await Album.create(albumSeeds);
+  await Album.create(AlbumSeeds);
 
   console.log('all done!');
   process.exit(0);

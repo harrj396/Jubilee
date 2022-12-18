@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
@@ -69,7 +71,7 @@ const Signup = () => {
                 />
                 <input
                   className="form-input"
-                  placeholder="******"
+                  placeholder="Password"
                   name="password"
                   type="password"
                   value={formState.password}
@@ -83,6 +85,32 @@ const Signup = () => {
                   Submit
                 </button>
               </form>
+    //   <Form>
+    //   <Form.Group className="mb-3" controlId="formBasicEmail">
+    //     <Form.Label>User name</Form.Label>
+    //     <Form.Control type="username" placeholder="Enter user name" />
+    //     </Form.Group>
+              //   <Form.Group className="mb-3" controlId="formBasicEmail">
+              //     <Form.Label>User name</Form.Label>
+              //     <Form.Control type="username" placeholder="Enter user name" />
+              //   </Form.Group>
+
+              //   <Form.Group className="mb-3" controlId="formBasicEmail">
+              //     <Form.Label>Email address</Form.Label>
+              //     <Form.Control type="email" placeholder="Enter email" />
+              //     <Form.Text className="text-muted">
+              //       We'll never share your email with anyone else.
+              //     </Form.Text>
+              //   </Form.Group>
+
+              //   <Form.Group className="mb-3" controlId="formBasicPassword">
+              //     <Form.Label>Password</Form.Label>
+              //     <Form.Control type="password" placeholder="Password" />
+              //   </Form.Group>
+              //   <Button variant="primary" type="submit">
+              //     Submit
+              //   </Button>
+              // </Form>
             )}
 
             {error && (

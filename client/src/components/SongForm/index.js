@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-
+import SearchSpotify from '../SearchSpotify';
 import { ADD_SONG } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
@@ -41,7 +41,7 @@ const SongForm = ({ albumId }) => {
   };
 
   return (
-    <div>
+    <SearchSpotify>
       <h4>What are your Albums on this Playlist?</h4>
 
       {Auth.loggedIn() ? (
@@ -57,17 +57,18 @@ const SongForm = ({ albumId }) => {
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
-          <div className="col-12 col-lg-9">
-            <textarea
-            name="songTitle"
-            placeholder="Add your song..."
-            value={songTitle}
-            className="form-input w-100"
-            style={{ lineHeight: '1.5', resize: 'vertical' }}
-            onChange={handleChange}
-            ></textarea>
-          </div>
-    
+
+            <div className="col-12 col-lg-9">
+              <textarea
+                name="songTitle"
+                placeholder="Add your song..."
+                value={songTitle}
+                className="form-input w-100"
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
                 Add Song
@@ -81,7 +82,7 @@ const SongForm = ({ albumId }) => {
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
-    </div>
+    </SearchSpotify>
   );
 };
 

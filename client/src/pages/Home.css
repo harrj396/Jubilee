@@ -1,0 +1,22 @@
+.img1 {
+    width: 100%;
+}
+
+.textover {
+    margin-top: -15vh;
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding: 15px;
+}
+
+#button1 {
+    margin-top: 27vh;
+    padding: 15px;
+    font-size: 27px;
+    /* display: flex; */
+    /* justify-content: center; */
+    margin-left: 40vw;
+    margin-bottom: 15vh;
+    
+}
