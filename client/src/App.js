@@ -14,6 +14,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import SingleAlbum from './pages/SingleAlbum';
 import Profile from './pages/Profile';
+import NotFound from './pages/NotFound';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import About from './pages/About'

@@ -7,6 +7,8 @@ import { QUERY_ALBUMS, QUERY_ME } from "../../utils/queries";
 
 import SearchSpotify from "../SearchSpotify";
 import Auth from "../../utils/auth";
+import SongForm from "../SongForm";
+import SongList from "../SongList";
 
 const AlbumForm = () => {
   const [AlbumTitle, setAlbumTitle] = useState("");
@@ -71,8 +73,8 @@ const AlbumForm = () => {
             className={`m-0 ${characterCount === 280 || error ? "text-danger" : ""
               }`}
           >
-            Character Count: {characterCount}/280
           </p>
+          
           <SearchSpotify />
 
 

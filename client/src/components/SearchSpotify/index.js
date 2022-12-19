@@ -1,18 +1,27 @@
 // import logo from './logo.svg';
 // import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, InputGroup, FormControl, Button, Row, Card } from 'react-bootstrap';
+
 import React, { useEffect, useState } from 'react';
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import {
+  Container,
+  InputGroup,
+  FormControl,
+  Button,
+  Row,
+  Card,
+} from "react-bootstrap";
 
 
 function SearchSpotify() {
-
   const spotify_client_Id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
   const spotify_client_secret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
   const [accessToken, setAccessToken] = useState("")
   const [albums, SetAlbums] = useState([]);
   const authParameters = {
-    method: 'POST',
+    method: "POST",
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     },
@@ -27,7 +36,7 @@ function SearchSpotify() {
   }
 
   useEffect(() => {
-    ypp()
+    ypp();
   });
 
   // Search function
@@ -58,6 +67,16 @@ function SearchSpotify() {
         SetAlbums(data);
       })
 
+    var returnedAlbums = await fetch(
+      "https://api.spotify.com/v1/tracks/" + artistID,
+      searchParameters
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("trackdata", data.name);
+        console.log("URL", data.album.images[0].url);
+        SetAlbums(data);
+      });
   }
   //  console.log(albums);
 

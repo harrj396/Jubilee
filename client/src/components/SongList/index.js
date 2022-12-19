@@ -2,7 +2,7 @@ import React from 'react';
 
 const SongList = ({ songs = [] }) => {
   if (!songs.length) {
-    return <h3>No Songs Yet</h3>;
+    return <h3>Songs</h3>;
   }
 
   return (

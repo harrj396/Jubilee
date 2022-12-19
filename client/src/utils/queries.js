@@ -26,7 +26,7 @@ export const QUERY_ALBUMS = gql`
 
 export const QUERY_SINGLE_ALBUM = gql`
   query getSingleAlbum($albumId: ID!) {
-    thought(thoughtId: $albumId) {
+    album(albumId: $albumId) {
       _id
       albumTitle
       albumArtist
