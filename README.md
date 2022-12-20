@@ -16,8 +16,13 @@ While building this project I learned to:
 <!-- This section is optional, checkout out Shields_Library.md for pregenerated shields -->
 ### Built With
 
+[![React Shield](https://img.shields.io/badge/React%20-%2361DAFB.svg?&style=for-the-badge&logo=React&logoColor=white)](https://reactjs.org/)
+[![GraphQL Shield](https://img.shields.io/badge/GraphQL%20-%23E10098.svg?&style=for-the-badge&logo=GraphQL&logoColor=white)](https://graphql.com)
+[![Spotify Shield](https://img.shields.io/badge/Spotify%20-%231ED760.svg?&style=for-the-badge&logo=Spotify&logoColor=white)](https://spotify.com)
+[![MongoDB Shield](https://img.shields.io/badge/MongoDB%20-%2347A248.svg?&style=for-the-badge&logo=MongoDB&logoColor=white)](https://mongodb.com) 
 [![Node.js Shield](https://img.shields.io/badge/Node.js-339933?&style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/) 
 [![Express Shield](https://img.shields.io/badge/Express-000000?&style=for-the-badge&logo=express&logoColor=white)](http://expressjs.com/) 
+
 
 Grading Requirements
 
