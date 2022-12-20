@@ -15,7 +15,7 @@ While building this project I learned to:
 
 <!-- This section is optional, checkout out Shields_Library.md for pregenerated shields -->
 ### Built With
-
+[![React.js Shield]("https://img.shields.io/badge/React%20-%2361DAFB.svg?&style=for-the-badge&logo=React&logoColor=white")(https://reactjs.org)
 [![Node.js Shield](https://img.shields.io/badge/Node.js-339933?&style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/) 
 [![Express Shield](https://img.shields.io/badge/Express-000000?&style=for-the-badge&logo=express&logoColor=white)](http://expressjs.com/) 
 
