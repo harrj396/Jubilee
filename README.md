@@ -16,8 +16,13 @@ While building this project I learned to:
 <!-- This section is optional, checkout out Shields_Library.md for pregenerated shields -->
 ### Built With
 
+[![React Shield](https://img.shields.io/badge/React%20-%2361DAFB.svg?&style=for-the-badge&logo=React&logoColor=white)](https://reactjs.org/)
+[![GraphQL Shield](https://img.shields.io/badge/GraphQL%20-%23E10098.svg?&style=for-the-badge&logo=GraphQL&logoColor=white)](https://graphql.com)
+[![Spotify Shield](https://img.shields.io/badge/Spotify%20-%231ED760.svg?&style=for-the-badge&logo=Spotify&logoColor=white)](https://spotify.com)
+[![MongoDB Shield](https://img.shields.io/badge/MongoDB%20-%2347A248.svg?&style=for-the-badge&logo=MongoDB&logoColor=white)](https://mongodb.com) 
 [![Node.js Shield](https://img.shields.io/badge/Node.js-339933?&style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/) 
 [![Express Shield](https://img.shields.io/badge/Express-000000?&style=for-the-badge&logo=express&logoColor=white)](http://expressjs.com/) 
+
 
 Grading Requirements
 
@@ -106,7 +111,14 @@ git clone
 ```
 2. Screenshot Example
 
-3. Single line of code example `this is a line of code`
+![Screenshot_20221219_030355](https://user-images.githubusercontent.com/109435666/208511588-e80b6bf3-05c1-4ca3-8933-8b37c86037ef.png)
+
+![Screenshot_20221219_030440](https://user-images.githubusercontent.com/109435666/208511828-92ae51df-c1c1-4e86-ad32-2539d9bc3569.png)
+
+![Screenshot_20221219_030506](https://user-images.githubusercontent.com/109435666/208512012-47b50a9a-4d38-407f-b25b-e3eddf19eb1a.png)
+
+![Screenshot_20221219_030544](https://user-images.githubusercontent.com/109435666/208512133-a1ca55a5-8817-4169-b554-23b9275bf356.png)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
