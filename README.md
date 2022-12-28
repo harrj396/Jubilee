@@ -107,8 +107,18 @@ Add a comment about installing your project. For example that your project will 
 
 1. Code block example
 ```
-git clone 
+git clone git@github.com:harrj396/Jubilee.git
 ```
+Install Dependencies
+
+All NPM packages required for this application (Express, MongoDB, Mongoose, GraphQL API and REACT) are already listed as dependencies in the package.json file. Run the command 'npm install' command in your terminal at the root directory level to install the packages.
+Ensure you have Node.js installed on your machine. The budget tracker application will be invoked by entering node server.js in the command line.
+Start Application
+
+You will see App running on port 3000! in the console. You can then view the app on http://localhost:3000/.
+
+Finally, to make your profile Employer Competitive, add a headline. For your  headline, try to make it catchy and unique to you. For example: “Web  Developer + Creative Thinker” or “UX-Focused Web Developer” is a  little more interesting and informative than just “Web Developer”. 
+
 2. Screenshot Example
 
 ![Screenshot_20221219_030355](https://user-images.githubusercontent.com/109435666/208511588-e80b6bf3-05c1-4ca3-8933-8b37c86037ef.png)
