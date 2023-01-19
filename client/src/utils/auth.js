@@ -1,7 +1,7 @@
 import decode from 'jwt-decode';
 
 class AuthService {
-  getProfile() {
+  getUser() {
     return decode(this.getToken());
   }
 
@@ -28,12 +28,16 @@ class AuthService {
   }
 
   login(idToken) {
+    // Saves user token to localStorage and reloads the application for logged in status
+    // take effect
     localStorage.setItem('id_token', idToken);
     window.location.assign('/');
   }
 
   logout() {
+    // Clear user token and profile data from localStorage
     localStorage.removeItem('id_token');
+    // This will reload the page and reset the state of the application
     window.location.reload();
   }
 }
