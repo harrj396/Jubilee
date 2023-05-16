@@ -23,6 +23,9 @@ While building this project I learned to:
 [![Node.js Shield](https://img.shields.io/badge/Node.js-339933?&style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/) 
 [![Express Shield](https://img.shields.io/badge/Express-000000?&style=for-the-badge&logo=express&logoColor=white)](http://expressjs.com/) 
 
+## Presentation
+
+[Slides](https://docs.google.com/presentation/d/1IKFVkLBn6JNey-iKkCaH4df8Y2P_QPaP-PE11vpFQiU/edit?usp=sharing)
 
 Grading Requirements
 
