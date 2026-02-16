@@ -1,3 +1,4 @@
-const Album = require('./Album');
+const User = require('./User');
+const VinylOrder = require('./VinylOrder');
 
-module.exports = { Album };
+module.exports = { User, VinylOrder };

@@ -1,15 +1,13 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
-// Import schema from Album.js
-const Album = require("./Album");
-
 const userSchema = new Schema(
   {
     username: {
       type: String,
       required: true,
       unique: true,
+       trim: true
     },
     email: {
       type: String,
@@ -20,43 +18,75 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
+      minlength: 5
     },
-    // set savedAlbums to be an array of data that adhers to the bookSchema
-    savedAlbums: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Album",
-      },
-    ],
+    // Spotify integration fields
+    spotifyId: {
+      type: String,
+      unique: true,
+      sparse: true // Allows null values while maintaining uniqueness
+    },
+    spotifyAccessToken: String,
+    spotifyRefreshToken: String,
+    spotifyTokenExpiry: Date,
+
+    // Reference to vinyl orders
+    vinylOrders: [{
+      type: Schema.Types.ObjectId,
+      ref: "VinylOrder"
+    }],
+
+    // Saved favorite tracks for quick re-ordering
+    favoriteTracks: [{
+      trackId: String,
+      trackName: String,
+      artistName: String,
+      albumName: String,
+      albumImage: String
+    }]
   },
-  // Set this to use virtual below
   {
+    timestamps: true, // Adds createdAt and updatedAt
     toJSON: {
       virtuals: true,
-    },
+      transform: function(doc, ret) {
+        delete ret.password; // Remove password from JSON output
+        return ret;
+      }
+    }
   }
 );
 
-// hash user password
+// Hash password before saving
 userSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
-
   next();
 });
+
+// Validate password method
+userSchema.methods.isCorrectPassword = async function (password) {
+  return bcrypt.compare(password, this.password);
+};
 
 // custom method to compare and validate password for logging in
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-// when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-userSchema.virtual("albumCount").get(function () {
-  return this.savedAlbums.length;
+// Virtual for order count
+userSchema.virtual("orderCount").get(function () {
+  return this.vinylOrders.length;
 });
 
-const User = model("User", userSchema);
+// Check if Spotify token is expired
+userSchema.methods.isSpotifyTokenExpired = function () {
+  if (!this.spotifyTokenExpiry) return true;
+  return Date.now() >= this.spotifyTokenExpiry;
+};
 
+
+const User = model("User", userSchema);
 module.exports = User;
